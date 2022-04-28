@@ -1,3 +1,7 @@
+select count(bar.foo) from bar;
+select count(distinct bar.foo) from bar;
+select "count"(distinct bar.foo) from bar;
+
 select 1 from foo where bar in (select 1 from baz);
 
 select 1 from foo where bar in ((select 1 from baz));

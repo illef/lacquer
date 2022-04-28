@@ -609,10 +609,10 @@ def p_value(p):
 
 
 def p_function_call(p):
-    r"""function_call : qualified_name LPAREN call_args RPAREN"""
+    r"""function_call : qualified_name LPAREN set_quantifier_opt call_args RPAREN"""
     # FIXME: Distinct and arguments may need to be corrected
-    distinct = p[3] is None or (isinstance(p[3], str) and p[3].upper() == "DISTINCT")
-    p[0] = FunctionCall(p.lineno(1), p.lexpos(1), name=p[1], distinct=distinct, arguments=p[3])
+    # NOTE: ignore distinct
+    p[0] = FunctionCall(p.lineno(1), p.lexpos(1), name=p[1], distinct=None, arguments=p[4])
 
 
 def p_call_args(p):
