@@ -58,6 +58,12 @@ select bar.foo from bar join baz on (bar.foo = baz.foo);
 
 select bar.foo from bar join baz on bar.foo = baz.foo;
 
+select bar.foo from bar join baz on ((bar.foo = baz.foo) and bar.foo = baz.foo);
+select bar.foo from bar join baz on ((bar.foo = baz.foo) and (bar.foo = baz.foo));
+select bar.foo from bar join baz on (bar.foo = baz.foo and bar.foo = baz.foo);
+select bar.foo from bar join baz on (bar.foo = baz.foo);
+select bar.foo from bar join baz on (NOT baz.foo);
+
 select
 	l_returnflag,
 	l_linestatus,

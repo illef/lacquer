@@ -16,3 +16,5 @@ doc/*.tag
 python/lsst/__init__.pyc
 lacquer/parsers/parser.out
 .idea
+venv
+.venv

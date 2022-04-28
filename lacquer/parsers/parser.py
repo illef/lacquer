@@ -435,8 +435,14 @@ def p_boolean_term(p):
 
 
 def p_boolean_factor(p):
-    r"""boolean_factor : not_opt boolean_test"""
-    if p[1]:
+    r"""boolean_factor : not_opt boolean_test
+                       | LPAREN not_opt boolean_test RPAREN"""
+    if len(p) == 5: # case of RPAREN not_opt
+        if p[2]:
+            p[0] = NotExpression(p.lineno(1), p.lexpos(1), value=p[3])
+        else:
+            p[0] = p[3]
+    elif p[1]:
         p[0] = NotExpression(p.lineno(1), p.lexpos(1), value=p[2])
     else:
         p[0] = p[2]
