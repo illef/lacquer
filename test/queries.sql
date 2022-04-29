@@ -1,3 +1,7 @@
+select * from client_ad_log_view_count where ((kr_date >= '2021-01-01'));
+select * from client_ad_log_view_count where ((kr_date >= '2021-01-01') and (test = 1));
+select * from client_ad_log_view_count where (((kr_date >= '2021-01-01') and (test = 1)) and test2 =1);
+select * from client_ad_log_view_count where ((((kr_date >= '2021-01-01') and (is_sponsored = 1)) and (view_template in ('post', 'comment', 'notice'))) and (role = 'parent'));
 select count(bar.foo) from bar;
 select count(distinct bar.foo) from bar;
 select "count"(distinct bar.foo) from bar;

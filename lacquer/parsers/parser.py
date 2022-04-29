@@ -427,9 +427,15 @@ def p_search_condition(p):
 
 def p_boolean_term(p):
     r"""boolean_term : boolean_factor
+                     | LPAREN boolean_term RPAREN
                      | boolean_term AND boolean_factor"""
     if len(p) == 2:
         p[0] = p[1]
+    elif len(p) == 4: # case of LPAREN boolean_term RPAREN
+        if p[1] == "(":
+            p[0] = p[2]
+        else:
+            p[0] = p[1]
     else:
         p[0] = LogicalBinaryExpression(p.lineno(1), p.lexpos(1), type="AND", left=p[1], right=p[3])
 
