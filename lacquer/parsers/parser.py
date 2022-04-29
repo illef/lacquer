@@ -185,7 +185,7 @@ def _item_list(p):
     if len(p) == 2:
         p[0] = [p[1]]
     elif isinstance(p[1], list):
-        p[1].append(p[3])
+        # p[1].append(p[3])
         p[0] = p[1]
     else:
         p[0] = None
@@ -680,6 +680,7 @@ def p_else_clause(p):
 
 def p_call_list(p):
     r"""call_list : call_list COMMA expression
+                  | call_list expression
                   | expression"""
     _item_list(p)
 

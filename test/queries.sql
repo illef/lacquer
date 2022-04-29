@@ -1,3 +1,4 @@
+SELECT sequence(A,B, INTERVAL '1' DAY);
 select * from client_ad_log_view_count where ((kr_date >= '2021-01-01'));
 select * from client_ad_log_view_count where ((kr_date >= '2021-01-01') and (test = 1));
 select * from client_ad_log_view_count where (((kr_date >= '2021-01-01') and (test = 1)) and test2 =1);
